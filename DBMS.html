@@ -1589,7 +1589,34 @@
         </tr>
     </table>
 </div>
-
+<div id="qn" class="question">
+  Write SQL queries for the following tasks:
+  <div class="answer">
+    <h3>Create a table named students with the fields: Id, Name, Class, and Marks.</h3>
+    <p>
+      <code>CREATE TABLE students (Id int AUTO_INCREMENT PRIMARY KEY, Name varchar(30), Class int, Marks DECIMAL(2,0));</code>
+      <img src="o5.png" alt="Create Table Query" />
+      <h3>Insert records into the students table with appropriate values.</h3>
+      <p>
+        <code>INSERT INTO students VALUES (1,'Kaushal', 12, 50), (2,'Rahul', 12, 0),(3,'Anita',12,33),(4,'anupam',12,22);</code>
+      <img src="o6.png" alt="Insert Records Query" />
+      <h3>Display all records from the students table.</h3>
+      <p>
+        <code>SELECT * FROM students;</code>
+      <img src="o7.png" alt="Display All Records Query" />
+      <img src="o8.png" alt="Display All Records Result" />
+      <h3>Update the marks of a student whose name is 'Anita' to 85.</h3>
+      <p>
+        <code>UPDATE students SET Marks = 85 WHERE Name = 'Anita';</code>
+        <img src="o9.png" alt="Update Marks Query" />
+        <img src="o10.png" alt="img">
+      <h3>Delete the record of the student with id = 3.</h3>
+      <p>
+        <code>DELETE FROM students WHERE Id = 3;</code>
+        <img src="o11.png" alt="Delete Record Query" />
+        <img src="o12.png" alt="Delete Record Result" />  
+  </div>
+</div>
   <div id="qn" class="question">
     <h2>Define the following terms:</h2>
     <ol>
