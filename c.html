@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grade12 | C</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="TOC">
+        <h2>Topics</h2>
+        <ul id="tocul">
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+
+      <main id="details">
+        <h1 id="functions-intro">Understanding Functions in C</h1>
+
+        <section id="define-function">
+          <h2>a. Define Function</h2>
+          <p>
+            A function in C is a block of code designed to perform a specific
+            task. It helps to break a program into smaller, manageable, and
+            reusable sections.
+          </p>
+          <div class="example">
+            Example: A function to add two numbers and return the result.
+            <code> int add(int a, int b) { return a + b; } </code>
+          </div>
+        </section>
+
+        <section id="syntax-functions">
+          <h2>b. Syntax of Functions</h2>
+          <p>
+            The basic syntax of a function in C includes the return type,
+            function name, parameters inside parentheses, and the function body
+            enclosed in braces.
+          </p>
+          <div class="example">
+            Syntax:<br />
+            <code>
+              return_type function_name(parameter_list) {<br />
+              &nbsp;&nbsp; // body of the function<br />
+              }
+            </code>
+          </div>
+        </section>
+
+        <section id="types-functions">
+          <h2>c. Types of Functions</h2>
+          <p>Functions in C are mainly classified into:</p>
+          <ul>
+            <li>
+              <b>Library Functions:</b> Predefined functions provided by C
+              standard libraries, such as <code>printf()</code>,
+              <code>scanf()</code>, and <code>sqrt()</code>.
+            </li>
+            <li>
+              <b>User-defined Functions:</b> Functions created by the programmer
+              to perform specific tasks as needed in the program.
+            </li>
+          </ul>
+          <div class="example">
+            Example of a user-defined function:<br />
+            <code>
+              void greet() {<br />
+              &nbsp;&nbsp; printf("Hello, world!");<br />
+              }
+            </code>
+          </div>
+        </section>
+
+        <h1 id="function-components-heading">
+          Understanding Function Components in C
+        </h1>
+
+        <section id="function-components">
+          <h2>d. Components of Function</h2>
+          <p>
+            A complete function implementation in C consists of several key
+            components that work together to define and execute the function's
+            behavior.
+          </p>
+
+          <section id="function-prototype">
+            <h3>i. Function Prototype</h3>
+            <p>
+              A function prototype declares the function's interface before its
+              actual implementation, informing the compiler about the function's
+              name, return type, and parameters.
+            </p>
+            <div class="example">
+              <p>Example:</p>
+              <code>
+                // Function prototype<br />
+                int add(int a, int b);
+              </code>
+              <p>Characteristics:</p>
+              <ul>
+                <li>Ends with a semicolon</li>
+                <li>Parameter names are optional in prototype</li>
+                <li>Enables calling functions before their definition</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="function-call">
+            <h3>ii. Function Call</h3>
+            <p>
+              A function call invokes the function's execution by using its name
+              followed by actual arguments in parentheses.
+            </p>
+            <div class="example">
+              <p>Example:</p>
+              <code> int result = add(5, 3); // Function call </code>
+              <p>Characteristics:</p>
+              <ul>
+                <li>Must match the prototype's parameter count and types</li>
+                <li>Can be used in expressions or as standalone statements</li>
+                <li>Control transfers to the function during execution</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="function-definition">
+            <h3>iii. Function Definition</h3>
+            <p>
+              The function definition contains the actual implementation of the
+              function, including the function header and body with all
+              statements.
+            </p>
+            <div class="example">
+              <p>Example:</p>
+              <code>
+                int add(int a, int b) { // Function definition<br />
+                &nbsp;&nbsp;return a + b;<br />
+                }
+              </code>
+              <p>Characteristics:</p>
+              <ul>
+                <li>Must match the prototype's return type and parameters</li>
+                <li>Contains the executable code block</li>
+                <li>
+                  Can be placed anywhere in the source file (after prototypes)
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="return-type">
+            <h3>iv. Return Type</h3>
+            <p>
+              The return type specifies the data type of the value the function
+              returns to the caller.
+            </p>
+            <div class="example">
+              <p>Examples:</p>
+              <code>
+                int calculateTotal(); // Returns integer<br />
+                float getAverage(); // Returns floating-point<br />
+                void displayResults(); // Returns nothing
+              </code>
+              <p>Characteristics:</p>
+              <ul>
+                <li><code>void</code> indicates no return value</li>
+                <li>Must match the type of value in return statements</li>
+                <li>Determines how the function can be used in expressions</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <h1 id="function-classification">Function Classification in C</h1>
+
+        <div class="function-categories">
+          <h2>Classification Based on Return Type and Parameters</h2>
+
+          <div class="category-card">
+            <h3 class="category-title">
+              1. Value-Returning Parameterless Functions
+            </h3>
+            <p class="category-desc">
+              Functions that generate and return data without requiring any
+              input
+            </p>
+            <div class="code-sample">
+              <p class="code-title">Example: Get current temperature</p>
+              <code>
+                float getTemperature() { // Some sensor reading logic return
+                26.5; }
+              </code>
+            </div>
+            <p class="usage">
+              When to use: When you need computed/retrieved values that don't
+              depend on inputs
+            </p>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">
+              2. Value-Returning Parameterized Functions
+            </h3>
+            <p class="category-desc">
+              Functions that transform input parameters into computed results
+            </p>
+            <div class="code-sample">
+              <p class="code-title">Example: Calculate power</p>
+              <code>
+                double power(double base, int exponent) <br />{ double result =
+                1; for(int i=0; i&lt;exponent; i++) result *= base; return
+                result; }
+              </code>
+            </div>
+            <p class="usage">
+              When to use: For mathematical operations, data transformations,
+              and reusable calculations
+            </p>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">
+              3. Non-Returning Parameterless Functions
+            </h3>
+            <p class="category-desc">
+              Self-contained operations that perform tasks without inputs or
+              outputs
+            </p>
+            <div class="code-sample">
+              <p class="code-title">Example: Display system status</p>
+              <code>
+                void showSystemStatus() <br />{ printf("System: ONLINE\n");
+                printf("Users: 24\n"); <br />printf("Storage: 78%% used\n"); }
+              </code>
+            </div>
+            <p class="usage">
+              When to use: For displaying information, menu systems, or
+              initialization routines
+            </p>
+          </div>
+
+          <div class="category-card">
+            <h3 class="category-title">
+              4. Non-Returning Parameterized Functions
+            </h3>
+            <p class="category-desc">
+              Operations that use inputs to produce side effects without
+              returning values
+            </p>
+            <div class="code-sample"></div>
+            <p class="usage">
+              When to use: For operations that modify external state (files,
+              displays, etc.) based on parameters
+            </p>
+          </div>
+        </div>
+
+        <div class="comparison">
+          <h3>Quick Comparison</h3>
+          <table class="function-comparison">
+            <tr>
+              <th>Category</th>
+              <th>Return Value</th>
+              <th>Parameters</th>
+              <th>Common Uses</th>
+            </tr>
+            <tr>
+              <td>Type 1</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>Getting configuration values, random generators</td>
+            </tr>
+            <tr>
+              <td>Type 2</td>
+              <td>Yes</td>
+              <td>Yes</td>
+              <td>Mathematical operations, data processing</td>
+            </tr>
+            <tr>
+              <td>Type 3</td>
+              <td>No</td>
+              <td>No</td>
+              <td>Display functions, system commands</td>
+            </tr>
+            <tr>
+              <td>Type 4</td>
+              <td>No</td>
+              <td>Yes</td>
+              <td>File operations, output generation</td>
+            </tr>
+          </table>
+        </div>
+        <h1 id="storage-classes">Understanding Storage Classes in C</h1>
+
+        <section id="automatic">
+          <h2>i. Automatic Storage Class</h2>
+          <p>
+            The automatic storage class is the default for all local variables
+            declared inside a function or block. Variables are created when the
+            block is entered and destroyed on exit.
+          </p>
+          <div class="example">
+            Example:<br />
+            <code>
+              void example() {<br />
+              &nbsp;&nbsp; int x = 10; // automatic by default<br />
+              }
+            </code>
+          </div>
+        </section>
+
+        <section id="external">
+          <h2>ii. External Storage Class</h2>
+          <p>
+            The external storage class is used to define global variables that
+            are accessible across multiple files using the
+            <code>extern</code> keyword.
+          </p>
+          <div class="example">
+            Example:<br />
+            <code> extern int count; // declared in another file </code>
+          </div>
+        </section>
+
+        <section id="register">
+          <h2>iii. Register Storage Class</h2>
+          <p>
+            The register storage class suggests that a variable should be stored
+            in a CPU register for faster access. It is generally used for
+            frequently accessed variables.
+          </p>
+          <div class="example">
+            Example:<br />
+            <code> register int i; </code>
+          </div>
+        </section>
+
+        <section id="static">
+          <h2>iv. Static Storage Class</h2>
+          <p>
+            The static storage class keeps a variable's value intact between
+            multiple function calls. It retains its value even after the
+            function exits.
+          </p>
+          <div class="example">
+            Example:<br />
+            <code>
+              void demo() {<br />
+              &nbsp;&nbsp; static int x = 0;<br />
+              &nbsp;&nbsp; x++;<br />
+              &nbsp;&nbsp; printf("%d", x);<br />
+              }
+            </code>
+          </div>
+        </section>
+        <h1 id="recursive-function">Understanding Recursive Functions in C</h1>
+
+        <section id="definition">
+          <h2>What is a Recursive Function?</h2>
+          <p>
+            A recursive function is a function that calls itself to solve a
+            smaller subproblem of the original problem. It continues calling
+            itself until a base condition is met, which stops the recursion.
+          </p>
+        </section>
+
+        <section id="syntax">
+          <h2>Syntax of Recursive Function</h2>
+          <p>The basic syntax of a recursive function in C is:</p>
+          <div class="example">
+            <code>
+              return_type function_name(parameters) {<br />
+              &nbsp;&nbsp;if (base_condition) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;// stop condition<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;return value;<br />
+              &nbsp;&nbsp;} else {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;// recursive call<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;return function_name(smaller_problem);<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </code>
+          </div>
+        </section>
+
+        <section id="example">
+          <h2>Example: Factorial Using Recursion</h2>
+          <p>
+            This function calculates the factorial of a number using recursion.
+          </p>
+          <div class="example">
+            <code>
+              int factorial(int n) {<br />
+              &nbsp;&nbsp;if (n == 0 || n == 1)<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
+              &nbsp;&nbsp;else<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;return n * factorial(n - 1);<br />
+              }
+            </code>
+          </div>
+          <p>
+            Calling <code>factorial(5)</code> will return <code>120</code>,
+            since 5 × 4 × 3 × 2 × 1 = 120.
+          </p>
+        </section>
+
+        <section id="notes">
+          <h2>Key Points</h2>
+          <ul>
+            <li>
+              Every recursive function must have a base case to avoid infinite
+              recursion.
+            </li>
+            <li>
+              Recursive solutions are elegant but may consume more memory due to
+              function call stacks.
+            </li>
+            <li>
+              They are commonly used in problems like factorial, Fibonacci, tree
+              traversals, etc.
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
