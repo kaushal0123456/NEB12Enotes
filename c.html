@@ -12,7 +12,42 @@
         <h2>Topics</h2>
         <ul id="tocul">
           <li><a href="index.html">Home</a></li>
-        </ul>
+            <li><a href="#functions-intro">Understanding Functions in C</a>
+      <ul>
+        <li><a href="#define-function">Define Function</a></li>
+        <li><a href="#syntax-functions">Syntax of Functions</a></li>
+        <li><a href="#types-functions">Types of Functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#function-components-heading">Function Components</a>
+      <ul>
+        <li><a href="#function-prototype">Function Prototype</a></li>
+        <li><a href="#function-call">Function Call</a></li>
+        <li><a href="#function-definition">Function Definition</a></li>
+        <li><a href="#return-type">Return Type</a></li>
+      </ul>
+    </li>
+    <li><a href="#function-classification">Function Classification</a></li>
+    <li><a href="#function-types">Different Types of Functions</a>
+      <ul>
+        <li><a href="#type1">Return Type, No Arguments</a></li>
+        <li><a href="#type2">Return Type with Arguments</a></li>
+        <li><a href="#type3">No Return, No Arguments</a></li>
+        <li><a href="#type4">No Return with Arguments</a></li>
+      </ul>
+    </li>
+    <li><a href="#function-demo">Function Demonstration</a></li>
+    <li><a href="#storage-classes">Storage Classes</a>
+      <ul>
+        <li><a href="#automatic">Automatic</a></li>
+        <li><a href="#external">External</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#static">Static</a></li>
+      </ul>
+    </li>
+    <li><a href="#recursive-function">Recursive Functions</a></li>
+    <li><a href="#passing-array">Passing Arrays to Functions</a></li>
+  </ul>
       </div>
 
       <main id="details">
@@ -178,7 +213,7 @@
 
           <div class="category-card">
             <h3 class="category-title">
-              1. Value-Returning Parameterless Functions
+              1. Function with No Parameters and Value-Returning
             </h3>
             <p class="category-desc">
               Functions that generate and return data without requiring any
@@ -199,7 +234,7 @@
 
           <div class="category-card">
             <h3 class="category-title">
-              2. Value-Returning Parameterized Functions
+              2. function with Parameters and Value-Returning
             </h3>
             <p class="category-desc">
               Functions that transform input parameters into computed results
@@ -220,7 +255,7 @@
 
           <div class="category-card">
             <h3 class="category-title">
-              3. Non-Returning Parameterless Functions
+              3. function with No Parameters and Non-Returning
             </h3>
             <p class="category-desc">
               Self-contained operations that perform tasks without inputs or
@@ -241,7 +276,7 @@
 
           <div class="category-card">
             <h3 class="category-title">
-              4. Non-Returning Parameterized Functions
+              4. function with Parameters and Non-Returning
             </h3>
             <p class="category-desc">
               Operations that use inputs to produce side effects without
@@ -289,6 +324,122 @@
               <td>File operations, output generation</td>
             </tr>
           </table>
+          <h1 id="function-types">Different Types of Functions in C</h1>
+
+          <section id="type1">
+            <h2>i. Function with Return Type but No Arguments</h2>
+            <p>
+              This type of function returns a value but does not take any
+              parameters.
+            </p>
+            <div class="example">
+              <code>
+                int getNumber() {<br />
+                &nbsp;&nbsp;int n;<br />
+                &nbsp;&nbsp;scanf("%d", &n);<br />
+                &nbsp;&nbsp;return n;<br />
+                }
+              </code>
+            </div>
+          </section>
+
+          <section id="type2">
+            <h2>ii. Function with Return Type and with Arguments</h2>
+            <p>
+              This function takes arguments and returns a value after processing
+              them.
+            </p>
+            <div class="example">
+              <code>
+                int square(int x) {<br />
+                &nbsp;&nbsp;return x * x;<br />
+                }
+              </code>
+            </div>
+          </section>
+
+          <section id="type3">
+            <h2>iii. Function with No Return Type and No Arguments</h2>
+            <p>
+              This function performs an action but does not return any value or
+              take any input.
+            </p>
+            <div class="example">
+              <code>
+                void greet() {<br />
+                &nbsp;&nbsp;printf("Hello!");<br />
+                }
+              </code>
+            </div>
+          </section>
+
+          <section id="type4">
+            <h2>iv. Function with No Return Type but with Arguments</h2>
+            <p>
+              This function accepts arguments but does not return any value.
+            </p>
+            <div class="example">
+              <code>
+                void display(int x) {<br />
+                &nbsp;&nbsp;printf("The value is: %d", x);<br />
+                }
+              </code>
+            </div>
+          </section>
+          <h1 id="function-demo">
+  Demonstrating All Four Types of Functions in C
+</h1>
+
+<section id="full-program">
+  <h2>Full C Program</h2>
+  <div class="example">
+    <code>
+      #include &lt;stdio.h&gt;<br /><br />
+
+      // Function with return type but no arguments<br />
+      int getNumber() {<br />
+      &nbsp;&nbsp;int n;<br />
+      &nbsp;&nbsp;printf("Enter a number: ");<br />
+      &nbsp;&nbsp;scanf("%d", &n);<br />
+      &nbsp;&nbsp;return n;<br />
+      }<br /><br />
+
+      // Function with return type and arguments<br />
+      int square(int x) {<br />
+      &nbsp;&nbsp;return x * x;<br />
+      }<br /><br />
+
+      // Function with no return type and no arguments<br />
+      void greet() {<br />
+      &nbsp;&nbsp;printf("Hello! Welcome to the program.\\n");<br />
+      }<br /><br />
+
+      // Function with no return type but with arguments<br />
+      void display(int x) {<br />
+      &nbsp;&nbsp;printf("The value you entered is: %d\\n", x);<br />
+      }<br /><br />
+
+      int main() {<br />
+      &nbsp;&nbsp;greet();<br />
+      &nbsp;&nbsp;int num = getNumber();<br />
+      &nbsp;&nbsp;int result = square(num);<br />
+      &nbsp;&nbsp;printf("Square of %d is %d\\n", num, result);<br />
+      &nbsp;&nbsp;display(num);<br />
+      printf("Program executed by kaushal\\n");<br />
+      &nbsp;&nbsp;return 0;<br />
+      }
+    </code>
+    <img src="o4.png" alt="output4">
+  </div>
+</section>
+
+<section id="explanation">
+  <h2>Explanation of Function Types</h2>
+  <ul>
+    <li><b>getNumber()</b> → Returns a value (int), takes no argument.</li>
+    <li><b>square(int x)</b> → Takes an int argument and returns an int.</li>
+    <li><b>greet()</b> → Does not take arguments and does not ret
+
         </div>
         <h1 id="storage-classes">Understanding Storage Classes in C</h1>
 
@@ -389,7 +540,16 @@
           </p>
           <div class="example">
             <code>
-              int factorial(int n) {<br />
+              #include &lt;stdio.h&gt;<br /><br />
+              int factorial(int n); <br /><br />
+              int main() {<br />
+              &nbsp;&nbsp;int num;<br />
+              &nbsp;&nbsp;printf("Enter a number: ");<br />
+              &nbsp;&nbsp;scanf("%d", &num);<br />
+              &nbsp;&nbsp;printf("Factorial of %d is %d and executed by
+              kaushal", num, factorial(num));<br />
+              &nbsp;&nbsp;return 0;<br />
+              } int factorial(int n){<br />
               &nbsp;&nbsp;if (n == 0 || n == 1)<br />
               &nbsp;&nbsp;&nbsp;&nbsp;return 1;<br />
               &nbsp;&nbsp;else<br />
@@ -401,6 +561,7 @@
             Calling <code>factorial(5)</code> will return <code>120</code>,
             since 5 × 4 × 3 × 2 × 1 = 120.
           </p>
+          <img src="o3.png" alt="Factorial Example Output" />
         </section>
 
         <section id="notes">
