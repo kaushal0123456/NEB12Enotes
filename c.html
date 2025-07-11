@@ -420,6 +420,89 @@
             </li>
           </ul>
         </section>
+        <h1 id="passing-array">
+          Demonstration of Passing Array to a Function in C
+        </h1>
+
+        <section id="introduction">
+          <h2>Introduction</h2>
+          <p>
+            In C, you can pass an array to a function by passing the array name,
+            which acts as a pointer to the first element. This allows the
+            function to access and modify the original array elements.
+          </p>
+        </section>
+
+        <section id="syntax">
+          <h2>Syntax</h2>
+          <p>Here is the general syntax of passing an array to a function:</p>
+          <div class="example">
+            <code>
+              void function_name(datatype array_name[], int size) {<br />
+              &nbsp;&nbsp;// function body<br />
+              }
+            </code>
+          </div>
+        </section>
+
+        <section id="example1">
+          <h2>Example 1: Printing Elements of an Array</h2>
+          <div class="example">
+            <code>
+              #include &lt;stdio.h&gt;<br /><br />
+
+              void printArray(int arr[], int size) {<br />
+              &nbsp;&nbsp;for (int i = 0; i &lt; size; i++) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;printf("%d ", arr[i]);<br />
+              &nbsp;&nbsp;}<br />
+              }<br /><br />
+
+              int main() {<br />
+              &nbsp;&nbsp;int numbers[] = {10, 20, 30, 40, 50};<br />
+              &nbsp;&nbsp;int n = 5;<br />
+              &nbsp;&nbsp;printArray(numbers, n);<br />
+              &nbsp;&nbsp;printf("program executed by Kaushal");<br />
+              &nbsp;&nbsp;return 0;<br />
+              }
+            </code>
+          </div>
+          <img src="o1.png" alt="Array Example Output" />
+        </section>
+
+        <section id="example2">
+          <h2>Example 2: Modifying Elements of an Array</h2>
+          <div class="example">
+            <code>
+              #include &lt;stdio.h&gt;<br /><br />
+
+              void doubleElements(int arr[], int size) {<br />
+              &nbsp;&nbsp;for (int i = 0; i &lt; size; i++) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;arr[i] *= 2;<br />
+              &nbsp;&nbsp;}<br />
+              }<br /><br />
+
+              int main() {<br />
+              &nbsp;&nbsp;int data[] = {1, 2, 3, 4};<br />
+              &nbsp;&nbsp;int n = 4;<br />
+              &nbsp;&nbsp;doubleElements(data, n);<br />
+              &nbsp;&nbsp;for (int i = 0; i &lt; n; i++) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;printf("%d ", data[i]);<br />
+
+              &nbsp;&nbsp;}<br />
+              &nbsp;&nbsp;printf("program executed by Kaushal");<br />
+              &nbsp;&nbsp;return 0;<br />
+              }
+            </code>
+          </div>
+          <p>
+            Output: <img src="o2.png" alt="Array Modification Example Output" />
+          </p>
+        </section>
+
+        <p>
+          Arrays in C are always passed by reference, meaning the function can
+          modify the original array elements directly.
+        </p>
       </main>
     </div>
   </body>
