@@ -24,6 +24,7 @@
           </li>
           <li><a href="#database-security">Database Security</a></li>
           <li><a href="#sql-datatypes">SQL Data Types</a></li>
+		  <li><a href="#last">DDL and DML</a></li>
           <li><a href="#pyq">Past year questions</a></li>
         </ul>
       </nav>
@@ -299,18 +300,87 @@
             </div>
           </div>
 
-          <div class="question">
-            <strong>Entity-Relationship (ER) Model:</strong>
-            <div class="answer">
-              The ER Model is a high-level conceptual data model used primarily
-              in database design. It represents real-world entities (such as
-              students, courses) and their relationships (enrollment,
-              registration). Entities have attributes (e.g., student name, ID),
-              and relationships can be one-to-one, one-to-many, or many-to-many.
-              It helps in visualizing data before converting it into relational
-              schemas.
-            </div>
-          </div>
+       <div class="question">
+  <strong>Entity-Relationship (ER) Model:</strong>
+  <div class="answer">
+
+    <!-- Introduction -->
+    <h3>Introduction</h3>
+    <p>
+      The Entity-Relationship (ER) Model is a high-level conceptual data model used primarily in database design. It allows database designers to visually represent data and its relationships before implementing the database in a relational model. This helps in understanding the system's structure, data flow, and relationships in a simplified and organized manner.
+    </p>
+
+    <!-- Entities -->
+    <h3>Entities</h3>
+    <p>
+      An <strong>Entity</strong> represents a real-world object or concept, such as a <em>Student</em>, <em>Course</em>, or <em>Teacher</em>. Entities are typically represented by rectangles in ER diagrams.
+    </p>
+
+    <!-- Attributes -->
+    <h3>Attributes</h3>
+    <p>
+      <strong>Attributes</strong> define the properties or characteristics of an entity. For example, a <em>Student</em> entity may have attributes like <em>StudentID</em>, <em>Name</em>, and <em>Email</em>. Attributes are represented by ellipses (ovals) connected to their entity.
+    </p>
+
+    <!-- Relationships -->
+    <h3>Relationships</h3>
+    <p>
+      A <strong>Relationship</strong> shows how two or more entities are associated with one another. For example, a <em>Student</em> "enrolls in" a <em>Course</em>. Relationships are represented by diamonds (rhombuses) in ER diagrams.
+    </p>
+
+    <!-- Cardinality and Degree -->
+    <h3>Cardinality and Degree</h3>
+    <p>
+      <strong>Cardinality</strong> defines the number of instances of one entity that can or must be associated with each instance of another entity. Common types:
+      <ul>
+        <li><strong>One-to-One (1:1):</strong> One entity instance is related to one instance of another entity.</li>
+        <li><strong>One-to-Many (1:N):</strong> One entity instance is related to multiple instances of another entity.</li>
+        <li><strong>Many-to-Many (M:N):</strong> Many instances of one entity relate to many instances of another entity.</li>
+      </ul>
+      <strong>Degree</strong> of a relationship refers to the number of entity sets participating in the relationship:
+      <ul>
+        <li><strong>Binary:</strong> Two entities involved</li>
+        <li><strong>Ternary:</strong> Three entities involved</li>
+        <li><strong>N-ary:</strong> More than three entities</li>
+      </ul>
+    </p>
+
+    <!-- ER Diagram Symbols -->
+    <h3>Symbols and Their Meanings</h3>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🟥 Rectangle</td>
+          <td>Represents an <strong>Entity</strong></td>
+        </tr>
+        <tr>
+          <td>🔷 Diamond</td>
+          <td>Represents a <strong>Relationship</strong></td>
+        </tr>
+        <tr>
+          <td>🟠 Oval</td>
+          <td>Represents an <strong>Attribute</strong></td>
+        </tr>
+        <tr>
+          <td>🔗 Line</td>
+          <td>Connects entities to relationships or attributes</td>
+        </tr>
+        <tr>
+          <td>1, N, M</td>
+          <td>Indicates <strong>Cardinality</strong> (e.g., 1:1, 1:N, M:N)</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
         </section>
 
         <section id="integrity-constraints">
@@ -834,6 +904,173 @@
             </div>
           </section>
         </section>
+		<section Id="last">
+		<div class="question">
+  <strong>Entity-Relationship (ER) Model and SQL Concepts:</strong>
+  <div class="answer">
+
+    <!-- Introduction -->
+    <h3>Introduction</h3>
+    <p>
+      The Entity-Relationship (ER) Model is a high-level conceptual data model used primarily in database design. It allows database designers to visually represent data and its relationships before implementing the database in a relational model.
+    </p>
+
+    <!-- Entities -->
+    <h3>Entities</h3>
+    <p>
+      An <strong>Entity</strong> represents a real-world object or concept, such as a <em>Student</em>, <em>Course</em>, or <em>Teacher</em>. Entities are typically represented by rectangles in ER diagrams.
+    </p>
+
+    <!-- Attributes -->
+    <h3>Attributes</h3>
+    <p>
+      <strong>Attributes</strong> define the properties or characteristics of an entity. For example, a <em>Student</em> entity may have attributes like <em>StudentID</em>, <em>Name</em>, and <em>Email</em>. Attributes are represented by ellipses (ovals) connected to their entity.
+    </p>
+
+    <!-- Relationships -->
+    <h3>Relationships</h3>
+    <p>
+      A <strong>Relationship</strong> shows how two or more entities are associated with one another. For example, a <em>Student</em> "enrolls in" a <em>Course</em>. Relationships are represented by diamonds (rhombuses) in ER diagrams.
+    </p>
+
+    <!-- Cardinality and Degree -->
+    <h3>Cardinality and Degree</h3>
+    <p>
+      <strong>Cardinality</strong> defines the number of instances of one entity that can or must be associated with each instance of another entity:
+      <ul>
+        <li><strong>1:1</strong> - One-to-One</li>
+        <li><strong>1:N</strong> - One-to-Many</li>
+        <li><strong>M:N</strong> - Many-to-Many</li>
+      </ul>
+      <strong>Degree</strong> refers to the number of entities involved in a relationship:
+      <ul>
+        <li><strong>Binary:</strong> Two entities</li>
+        <li><strong>Ternary:</strong> Three entities</li>
+        <li><strong>N-ary:</strong> More than three</li>
+      </ul>
+    </p>
+
+    <!-- ER Diagram Symbols -->
+    <h3>Symbols and Their Meanings</h3>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🟥 Rectangle</td>
+          <td>Entity</td>
+        </tr>
+        <tr>
+          <td>🔷 Diamond</td>
+          <td>Relationship</td>
+        </tr>
+        <tr>
+          <td>🟠 Oval</td>
+          <td>Attribute</td>
+        </tr>
+        <tr>
+          <td>🔗 Line</td>
+          <td>Connection</td>
+        </tr>
+        <tr>
+          <td>1, N, M</td>
+          <td>Cardinality</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SQL DDL and DML -->
+    <h3>SQL: DDL and DML</h3>
+    <p>
+      SQL (Structured Query Language) is used to manage and manipulate relational databases.
+    </p>
+    <ul>
+      <li><strong>DDL (Data Definition Language):</strong> Defines the structure of the database.
+        <br>Examples: 
+        <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code>
+      </li>
+      <li><strong>DML (Data Manipulation Language):</strong> Manages data within the schema.
+        <br>Examples: 
+        <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>SELECT</code>
+      </li>
+    </ul>
+
+    <!-- Data Constraints -->
+    <h3>Data Constraints</h3>
+    <p>Constraints are rules applied to data in tables:</p>
+    <ul>
+      <li><strong>NOT NULL:</strong> Field cannot be empty</li>
+      <li><strong>UNIQUE:</strong> Each value must be unique</li>
+      <li><strong>PRIMARY KEY:</strong> Uniquely identifies each record</li>
+      <li><strong>AUTO_INCREMENT:</strong> Automatically increases integer value (commonly used for IDs)</li>
+    </ul>
+    <pre><code>CREATE TABLE Students (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  Name VARCHAR(100) NOT NULL,
+  Email VARCHAR(100) UNIQUE
+);</code></pre>
+
+    <!-- SQL Operators -->
+    <h3>Operators (AND, OR, NOT)</h3>
+    <ul>
+      <li><strong>AND:</strong> All conditions must be true</li>
+      <li><strong>OR:</strong> At least one condition must be true</li>
+      <li><strong>NOT:</strong> Negates a condition</li>
+    </ul>
+    <pre><code>SELECT * FROM Students
+WHERE Age > 18 AND City = 'Delhi';</code></pre>
+
+    <!-- WHERE Clause -->
+    <h3>WHERE Clause</h3>
+    <p>Used to filter records that meet a specific condition.</p>
+    <pre><code>SELECT * FROM Students
+WHERE City = 'Mumbai';</code></pre>
+
+    <!-- ORDER BY -->
+    <h3>ORDER BY</h3>
+    <p>Used to sort query results in ascending (ASC) or descending (DESC) order.</p>
+    <pre><code>SELECT * FROM Students
+ORDER BY Name ASC;</code></pre>
+
+    <!-- SQL JOINs -->
+    <h3>SQL JOINs</h3>
+    <p>JOINs are used to combine rows from two or more tables based on related columns.</p>
+
+    <ul>
+      <li><strong>INNER JOIN:</strong> Returns matching rows from both tables</li>
+      <li><strong>LEFT JOIN:</strong> Returns all rows from the left table, and matched rows from the right</li>
+      <li><strong>RIGHT JOIN:</strong> Returns all rows from the right table, and matched rows from the left</li>
+      <li><strong>FULL JOIN:</strong> Returns rows when there is a match in either table</li>
+    </ul>
+
+    <pre><code>-- INNER JOIN
+SELECT Students.Name, Courses.CourseName
+FROM Students
+INNER JOIN Enrollments ON Students.ID = Enrollments.StudentID;
+
+-- LEFT JOIN
+SELECT Students.Name, Enrollments.CourseID
+FROM Students
+LEFT JOIN Enrollments ON Students.ID = Enrollments.StudentID;
+
+-- RIGHT JOIN
+SELECT Students.Name, Enrollments.CourseID
+FROM Students
+RIGHT JOIN Enrollments ON Students.ID = Enrollments.StudentID;
+
+-- FULL JOIN (Not supported in some DBMS like MySQL directly)
+SELECT Students.Name, Enrollments.CourseID
+FROM Students
+FULL OUTER JOIN Enrollments ON Students.ID = Enrollments.StudentID;</code></pre>
+
+  </div>
+</div>
+
+		</section>
         <section id="pyq">
           <h3>Past year questions</h3>
           <div id="qn" class="question">
