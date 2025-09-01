@@ -8,11 +8,11 @@
   </head>
   <body>
     <div id="main">
-      <div id="TOC">
-        <h2>Topics</h2>
-        <ul id="tocul">
-          <li><a href="index.html">Home</a></li>
-            <li><a href="#functions-intro">Understanding Functions in C</a>
+<div id="TOC">
+  <h2>Topics</h2>
+  <ul id="tocul">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#functions-intro">Understanding Functions in C</a>
       <ul>
         <li><a href="#define-function">Define Function</a></li>
         <li><a href="#syntax-functions">Syntax of Functions</a></li>
@@ -47,8 +47,20 @@
     </li>
     <li><a href="#recursive-function">Recursive Functions</a></li>
     <li><a href="#passing-array">Passing Arrays to Functions</a></li>
+    <li><a href="#cbv">CBV and CBR</a></li>
+
+    <li><a href="#structure">Structure and Union</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#union">Union</a></li>
+      </ul>
+    </li>
+    <li><a href="#pointers">Pointers</a></li>
+    <li><a href="#file-handling">File Handling</a></li>
+    <li><a href="#typedef">Typedef</a></li>
   </ul>
-      </div>
+</div>
+
 
       <main id="details">
         <h1 id="functions-intro">Understanding Functions in C</h1>
@@ -664,6 +676,311 @@
           Arrays in C are always passed by reference, meaning the function can
           modify the original array elements directly.
         </p>
+		<section id="cbv">
+		<h1>CBV and CBR</h1>
+		<div class="question">
+  <strong>Passing Arguments: Call by Value vs. Call by Reference</strong>
+  <div class="answer">
+
+    <!-- Introduction -->
+    <h3>Introduction</h3>
+    <p>
+      When a function is called, arguments can be passed in two main ways: <strong>Call by Value</strong> and <strong>Call by Reference</strong>. The method used determines whether the actual data or just a reference to the data is passed to the function.
+    </p>
+
+    <!-- Call by Value -->
+    <h3>Call by Value</h3>
+    <p>
+      In <strong>Call by Value</strong>, a copy of the actual value is passed to the function. Changes made inside the function do not affect the original variable.
+    </p>
+<pre><code>// Example in C
+#include &lt;stdio.h&gt;
+
+void update(int x) {
+    x = x + 10;
+    printf("Inside function: %d\n", x);
+}
+
+int main() {
+    int a = 5;
+    update(a);
+    printf("Outside function: %d\n", a);
+    return 0;
+}
+</code></pre>
+
+<h3>Call by Reference</h3>
+<p>
+  In <strong>Call by Reference</strong>, the address of the original variable is passed to the function. Changes inside the function affect the original variable.
+</p>
+<pre><code>// Example in C
+#include &lt;stdio.h&gt;
+
+void update(int *x) {
+    *x = *x + 10;
+    printf("Inside function: %d\n", *x);
+}
+
+int main() {
+    int a = 5;
+    update(&a);
+    printf("Outside function: %d\n", a);
+    return 0;
+}
+</code></pre>
+
+    <p><strong>Output:</strong><br>
+      Inside function: 15<br>
+      Outside function: 15
+    </p>
+
+    <!-- Summary Table -->
+    <h3>Comparison Table</h3>
+    <table border="1" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Call by Value</th>
+          <th>Call by Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What is passed?</td>
+          <td>Copy of the value</td>
+          <td>Address/reference of variable</td>
+        </tr>
+        <tr>
+          <td>Changes affect original?</td>
+          <td>No</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Memory used</td>
+          <td>More (due to copying)</td>
+          <td>Less (no copy)</td>
+        </tr>
+        <tr>
+          <td>Used for</td>
+          <td>Data protection</td>
+          <td>Efficiency and modifying originals</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+		</section>
+		<!-- STRUCTURE SECTION -->
+<section id="structure" class="question">
+  <h1>Structure in C</h1>
+  <div class="answer">
+    <h3>Introduction and Syntax</h3>
+    <p>A <strong>structure</strong> in C is a user-defined data type that allows grouping variables of different data types under one name.</p>
+    <pre><code>struct Student {
+  int id;
+  char name[50];
+  float marks;
+};</code></pre>
+
+    <h3>Structure Size</h3>
+    <p>Size of a structure is the total memory of all members, considering alignment/padding.</p>
+
+    <h3>Accessing Members</h3>
+    <p>Use the dot <code>.</code> operator to access structure members.</p>
+    <pre><code>struct Student s1;
+s1.id = 101;
+printf("%d", s1.id);</code></pre>
+
+    <h3>Nested Structure</h3>
+    <p>Structures can contain other structures.</p>
+    <pre><code>struct Date {
+  int day, month, year;
+};
+
+struct Student {
+  int id;
+  struct Date dob;
+};</code></pre>
+
+    <h3>Array of Structure</h3>
+    <pre><code>struct Student students[3];
+students[0].id = 101;</code></pre>
+
+    <h3>Passing Structure to Function</h3>
+    <pre><code>void print(struct Student s) {
+  printf("%d", s.id);
+}</code></pre>
+  </div>
+</section>
+
+<!-- UNION SECTION -->
+<section id="union" class="question">
+  <h1>Union in C</h1>
+  <div class="answer">
+    <h3>Introduction and Syntax</h3>
+    <p>A <strong>union</strong> allows storing different data types in the same memory location. All members share the same memory.</p>
+    <pre><code>union Data {
+  int i;
+  float f;
+};</code></pre>
+
+    <h3>Structure vs Union</h3>
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Structure</th><th>Union</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Memory</td><td>Sum of members</td><td>Max of members</td></tr>
+        <tr><td>Access</td><td>All at once</td><td>One at a time</td></tr>
+        <tr><td>Use</td><td>Data grouping</td><td>Memory saving</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- POINTERS SECTION -->
+<section id="pointers" class="question">
+  <h1>Pointers in C</h1>
+  <div class="answer">
+    <h3>Introduction and Syntax</h3>
+    <p>A pointer stores the memory address of another variable.</p>
+    <pre><code>int a = 10;
+int *p = &a;</code></pre>
+
+    <h3>Concept of Value and Address</h3>
+    <p><code>&</code> gives address, <code>*</code> gives value at address.</p>
+
+    <h3>Declaration and Initialization</h3>
+    <pre><code>int *ptr;
+ptr = &a;</code></pre>
+
+    <h3>Pointer and Function</h3>
+    <pre><code>void display(int *x) {
+  printf("%d", *x);
+}</code></pre>
+
+    <h3>Call by Reference</h3>
+    <pre><code>void update(int *a) {
+  *a = *a + 10;
+}</code></pre>
+
+    <h3>Comparison: Call by Value vs Call by Reference</h3>
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Call by Value</th><th>Call by Reference</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Data Passed</td><td>Copy of value</td><td>Address of variable</td></tr>
+        <tr><td>Effect on Original</td><td>No</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Pointer with Arrays</h3>
+    <pre><code>int arr[3] = {1,2,3};
+int *p = arr;
+printf("%d", *(p+1));</code></pre>
+
+    <h3>Advantages</h3>
+    <ul>
+      <li>Efficient memory use</li>
+      <li>Dynamic memory allocation</li>
+      <li>Function argument by reference</li>
+    </ul>
+
+    <h3>Disadvantages</h3>
+    <ul>
+      <li>Complexity</li>
+      <li>Unsafe if misused (dangling, null, wild pointers)</li>
+    </ul>
+  </div>
+</section>
+
+
+<section id="file-handling" class="question">
+  <h1>File Handling in C</h1>
+  <div class="answer">
+    <h3>Concept & Need</h3>
+    <p>Files allow persistent storage of data. Without file handling, data is lost after program execution.</p>
+
+    <h3>Sequential and Random Files</h3>
+    <p>
+      <strong>Sequential:</strong> Data accessed in order.<br>
+      <strong>Random:</strong> Direct access to specific location using file pointers.
+    </p>
+
+    <h3>File Handling Functions</h3>
+    <table>
+      <thead>
+        <tr><th>Function</th><th>Purpose</th><th>Syntax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>fopen()</code></td><td>Opens a file</td><td>fopen("file.txt", "r");</td></tr>
+        <tr><td><code>fclose()</code></td><td>Closes file</td><td>fclose(fp);</td></tr>
+        <tr><td><code>getc()</code></td><td>Reads character</td><td>getc(fp);</td></tr>
+        <tr><td><code>putc()</code></td><td>Writes character</td><td>putc('A', fp);</td></tr>
+        <tr><td><code>fprintf()</code></td><td>Formatted write</td><td>fprintf(fp, "%d", num);</td></tr>
+        <tr><td><code>fscanf()</code></td><td>Formatted read</td><td>fscanf(fp, "%d", &num);</td></tr>
+        <tr><td><code>getw()</code></td><td>Reads integer</td><td>getw(fp);</td></tr>
+        <tr><td><code>putw()</code></td><td>Writes integer</td><td>putw(100, fp);</td></tr>
+        <tr><td><code>fgets()</code></td><td>Reads string</td><td>fgets(str, 50, fp);</td></tr>
+        <tr><td><code>fputs()</code></td><td>Writes string</td><td>fputs(str, fp);</td></tr>
+        <tr><td><code>fread()</code></td><td>Reads binary data</td><td>fread(&data, sizeof(data), 1, fp);</td></tr>
+        <tr><td><code>fwrite()</code></td><td>Writes binary data</td><td>fwrite(&data, sizeof(data), 1, fp);</td></tr>
+        <tr><td><code>remove()</code></td><td>Deletes file</td><td>remove("file.txt");</td></tr>
+        <tr><td><code>rename()</code></td><td>Renames file</td><td>rename("old.txt", "new.txt");</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Random Access Functions</h3>
+    <ul>
+      <li><strong><code>fseek()</code>:</strong> Moves file pointer<br><code>fseek(fp, 0, SEEK_SET);</code></li>
+      <li><strong><code>rewind()</code>:</strong> Resets to beginning<br><code>rewind(fp);</code></li>
+      <li><strong><code>ftell()</code>:</strong> Tells current position<br><code>long pos = ftell(fp);</code></li>
+    </ul>
+
+    <h3>File Modes</h3>
+    <ul>
+      <li><strong>Read:</strong> <code>"r"</code>, <code>"r+"</code></li>
+      <li><strong>Write:</strong> <code>"w"</code>, <code>"w+"</code></li>
+      <li><strong>Append:</strong> <code>"a"</code>, <code>"a+"</code></li>
+    </ul>
+
+    <h3>Steps to Work with File</h3>
+    <ol>
+      <li>Define File Pointer: <code>FILE *fp;</code></li>
+      <li>Open File: <code>fp = fopen("file.txt", "r");</code></li>
+      <li>Read/Write/Append Data</li>
+      <li>Close File: <code>fclose(fp);</code></li>
+    </ol>
+
+    <h3>End of File (EOF)</h3>
+    <p>Used to detect end of file in loops: <code>while (!feof(fp))</code></p>
+  </div>
+</section>
+
+
+<section id="typedef" class="question">
+  <h1>Typedef in C</h1>
+  <div class="answer">
+    <h3>Definition</h3>
+    <p>The <code>typedef</code> keyword is used to create an alias or alternative name for existing data types to simplify code readability.</p>
+
+    <h3>Syntax</h3>
+    <pre><code>typedef unsigned int uint;
+uint age = 25;</code></pre>
+
+    <h3>Use Cases</h3>
+    <ul>
+      <li>Make code easier to maintain</li>
+      <li>Improve portability</li>
+      <li>Shorten complex type names</li>
+    </ul>
+  </div>
+</section>
+
+		
       </main>
     </div>
   </body>
